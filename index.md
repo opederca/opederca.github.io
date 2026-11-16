@@ -1,6 +1,6 @@
 
 ---
-title: Carlos Opeder | Computer Science Portfolio
+# Carlos Opeder | Computer Science Portfolio
 ---
 
 # Carlos Opeder
