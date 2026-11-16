@@ -2,8 +2,8 @@
 
 [About Me](#about-me) · [Projects](#projects) · [Skills](#technical-skills) · [Experience](#experience) · [Education](#education) · [Resume](#resume) · [Contact](#contact)
 
-Computer Science and Systems Student | University of Washington Tacoma
-Interested in Software Engineering | Seeking Internship Opportunities
+**Computer Science and Systems Student - University of Washington Tacoma**
+*Interested in Software Engineering - Seeking Internship Opportunities*
 
 Welcome to my portfolio! I'm a Computer Science and Systems student interested in software engineering, programming, and problem-solving.
 
