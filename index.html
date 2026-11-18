@@ -1,0 +1,1144 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Carlos Opeder — Computer Science and Systems student at the University of Washington Tacoma.">
+  <title>Carlos Opeder | Computer Science Portfolio</title>
+
+  <style>
+    :root {
+      --black: #000000;
+      --regal: #1E3765;
+      --white: #F8F9FC;
+      --pastel: #B0C6D4;
+      --soft-border: rgba(30,55,101,.14);
+      --container: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--black);
+      font-family: Inter, ui-sans-serif, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--pastel);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(calc(100% - 64px), var(--container));
+      margin-inline: auto;
+    }
+
+    /* NAVIGATION */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(0,0,0,.97);
+      color: var(--white);
+      border-bottom: 1px solid rgba(176,198,212,.21);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(176,198,212,.45);
+      color: var(--pastel);
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -.06em;
+      border-radius: 11px;
+    }
+
+    .brand-label {
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(248,249,252,.74);
+      font-size: 12px;
+      letter-spacing: .03em;
+      font-weight: 600;
+      transition: color .18s ease;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links .nav-resume {
+      color: var(--white);
+      border: 1px solid rgba(176,198,212,.46);
+      padding: 9px 14px;
+      border-radius: 7px;
+    }
+
+    .nav-toggle {
+      display: none;
+      appearance: none;
+      border: 1px solid rgba(176,198,212,.4);
+      background: transparent;
+      border-radius: 8px;
+      color: var(--white);
+      width: 44px;
+      height: 42px;
+      cursor: pointer;
+      font-size: 23px;
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 78% 27%,
+          rgba(30,55,101,.52), transparent 34%),
+        linear-gradient(0deg,
+          rgba(30,55,101,.10), transparent 44%);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.13fr .87fr;
+      align-items: center;
+      gap: 74px;
+      padding-block: 104px 78px;
+      min-height: 585px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--pastel);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--pastel);
+      border-radius: 50%;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      font-size: clamp(54px, 6.1vw, 91px);
+      font-weight: 750;
+      letter-spacing: -.075em;
+      line-height: 1.01;
+      margin: 28px 0 23px;
+    }
+
+    h1 span { color: var(--pastel); }
+
+    .hero-lead {
+      max-width: 585px;
+      font-size: clamp(16px, 1.55vw, 19px);
+      color: rgba(248,249,252,.76);
+      line-height: 1.78;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 35px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      min-height: 46px;
+      border-radius: 7px;
+      padding: 11px 19px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--pastel);
+      color: var(--black);
+    }
+
+    .btn-primary:hover { background: var(--white); }
+
+    .btn-secondary {
+      border: 1px solid rgba(176,198,212,.54);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(176,198,212,.12);
+    }
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+      position: relative;
+      max-width: 450px;
+      width: 100%;
+      aspect-ratio: .97;
+      margin-left: auto;
+      border: 1px solid rgba(176,198,212,.34);
+      background: linear-gradient(142deg,
+        var(--regal), #000000 105%);
+      border-radius: 17px;
+      padding: 26px;
+      box-shadow: 0 36px 100px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(176,198,212,.08) 1px,
+          transparent 1px),
+        linear-gradient(90deg,
+          rgba(176,198,212,.08) 1px,
+          transparent 1px);
+      background-size: 31px 31px;
+      mask-image: linear-gradient(to bottom,
+        black, transparent 87%);
+    }
+
+    .visual-top {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      font: 700 10px ui-monospace, Consolas, monospace;
+      letter-spacing: .09em;
+      color: rgba(248,249,252,.70);
+    }
+
+    .visual-main {
+      position: absolute;
+      inset: 21% 13%;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-ring {
+      position: relative;
+      width: min(100%, 270px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(176,198,212,.44);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-ring::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 50%;
+      border: 1px dashed rgba(176,198,212,.28);
+    }
+
+    .visual-ring::after {
+      content: "";
+      position: absolute;
+      inset: -22px;
+      border-radius: 50%;
+      border: 1px solid rgba(176,198,212,.12);
+    }
+
+    .visual-initials {
+      color: var(--white);
+      font-size: clamp(75px,10vw,128px);
+      letter-spacing: -.1em;
+      font-weight: 800;
+      line-height: 1;
+      transform: translateX(-6px);
+    }
+
+    .visual-caption {
+      position: absolute;
+      bottom: 22px;
+      left: 26px;
+      right: 26px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--pastel);
+      font: 700 10px/1.6 ui-monospace, Consolas, monospace;
+      letter-spacing: .1em;
+    }
+
+    .hero-bottom {
+      position: relative;
+      border-top: 1px solid rgba(176,198,212,.22);
+      padding: 20px 0 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 38px;
+      color: rgba(248,249,252,.72);
+      font-size: 12px;
+    }
+
+    .hero-bottom b {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .mini-square {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--pastel);
+      transform: rotate(45deg);
+      margin-right: 10px;
+    }
+
+    /* GENERAL SECTIONS */
+
+    .section { padding: 100px 0; }
+
+    .section-kicker {
+      color: var(--regal);
+      font-size: 11px;
+      letter-spacing: .16em;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: clamp(30px,3.6vw,47px);
+      line-height: 1.2;
+      letter-spacing: -.047em;
+      font-weight: 750;
+      margin: 0 0 20px;
+    }
+
+    .section-intro {
+      max-width: 710px;
+      font-size: 16px;
+      line-height: 1.85;
+      color: rgba(0,0,0,.68);
+    }
+
+    /* ABOUT */
+
+    .about {
+      border-bottom: 1px solid var(--soft-border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .about-copy {
+      font-size: 17px;
+      line-height: 1.96;
+      color: rgba(0,0,0,.74);
+    }
+
+    .about-copy p { margin-bottom: 16px; }
+
+    /* SKILLS */
+
+    .skills {
+      padding-top: 85px;
+      padding-bottom: 94px;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 15px;
+      margin-top: 33px;
+    }
+
+    .skill-card {
+      border: 1px solid var(--soft-border);
+      background: #ffffff;
+      min-height: 199px;
+      border-radius: 13px;
+      padding: 26px 25px;
+      box-shadow: 0 13px 35px rgba(30,55,101,.035);
+    }
+
+    .skill-index {
+      font: 800 11px ui-monospace, Consolas, monospace;
+      color: var(--regal);
+      letter-spacing: .1em;
+    }
+
+    .skill-card h3 {
+      margin: 21px 0 9px;
+      font-size: 19px;
+      letter-spacing: -.025em;
+    }
+
+    .skill-card p {
+      font-size: 13px;
+      line-height: 1.75;
+      margin: 0;
+      color: rgba(0,0,0,.61);
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      background: var(--regal);
+      color: var(--white);
+      padding-block: 84px;
+    }
+
+    .projects .section-kicker { color: var(--pastel); }
+
+    .projects-copy {
+      max-width: 580px;
+      font-size: 15px;
+      line-height: 1.85;
+      color: rgba(248,249,252,.80);
+    }
+
+    .projects-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 62px;
+      align-items: center;
+    }
+
+    .project-placeholder {
+      border: 1px solid rgba(176,198,212,.42);
+      border-radius: 13px;
+      padding: 32px;
+      min-height: 240px;
+      background: rgba(0,0,0,.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-placeholder::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(176,198,212,.18);
+      border-radius: 50%;
+      right: -70px;
+      top: -90px;
+      box-shadow:
+        0 0 0 45px rgba(176,198,212,.035),
+        0 0 0 95px rgba(176,198,212,.025);
+    }
+
+    .project-placeholder small {
+      display: block;
+      font: 700 11px/1.5 ui-monospace, Consolas, monospace;
+      letter-spacing: .12em;
+      color: var(--pastel);
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+
+    .project-placeholder h3 {
+      font-size: 23px;
+      letter-spacing: -.04em;
+      margin-bottom: 11px;
+      position: relative;
+    }
+
+    .project-placeholder p {
+      font-size: 13px;
+      max-width: 320px;
+      color: rgba(248,249,252,.75);
+      line-height: 1.8;
+      position: relative;
+    }
+
+    .projects-link {
+      display: inline-flex;
+      gap: 9px;
+      color: var(--pastel);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      margin-top: 23px;
+    }
+
+    .projects-link:hover { text-decoration: underline; }
+
+    /* EXPERIENCE */
+
+    .experience {
+      border-bottom: 1px solid var(--soft-border);
+    }
+
+    .experience-list {
+      margin-top: 34px;
+      border-top: 1px solid var(--soft-border);
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 50px;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--soft-border);
+    }
+
+    .exp-item h3 {
+      font-size: 21px;
+      letter-spacing: -.035em;
+      margin-bottom: 5px;
+    }
+
+    .exp-place {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--regal);
+      margin-bottom: 8px;
+    }
+
+    .exp-date {
+      font: 600 12px/1.8 ui-monospace, Consolas, monospace;
+      color: rgba(0,0,0,.50);
+    }
+
+    .exp-item ul {
+      padding-left: 20px;
+      margin: 0;
+      color: rgba(0,0,0,.69);
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .exp-item li + li { margin-top: 7px; }
+
+    /* EDUCATION */
+
+    .education { padding-block: 84px; }
+
+    .edu-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid var(--soft-border);
+      border-radius: 14px;
+      background: #ffffff;
+      padding: 29px 33px;
+    }
+
+    .edu-school {
+      font-size: 23px;
+      letter-spacing: -.04em;
+      margin-bottom: 6px;
+    }
+
+    .edu-degree {
+      color: rgba(0,0,0,.67);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .edu-date {
+      background: rgba(176,198,212,.22);
+      color: var(--regal);
+      padding: 11px 14px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: var(--black);
+      color: var(--white);
+      padding: 88px 0 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 85% 25%,
+        rgba(30,55,101,.65),
+        transparent 35%
+      );
+      pointer-events: none;
+    }
+
+    .contact-inner { position: relative; }
+    .contact .section-kicker { color: var(--pastel); }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      border: 1px solid rgba(176,198,212,.46);
+      padding: 12px 16px;
+      border-radius: 8px;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .contact-links a:hover {
+      background: rgba(176,198,212,.12);
+    }
+
+    .footer {
+      margin-top: 86px;
+      padding-top: 21px;
+      border-top: 1px solid rgba(176,198,212,.22);
+      color: rgba(248,249,252,.50);
+      font-size: 11px;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+    @media (max-width: 960px) {
+      .nav-links { gap: 14px; }
+      .hero-grid { gap: 40px; }
+      .about-grid { gap: 35px; }
+      .projects-layout { gap: 30px; }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 36px), var(--container));
+      }
+
+      .nav { height: 66px; }
+      .nav-toggle { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 66px;
+        background: var(--black);
+        padding: 12px 18px 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        border-bottom: 1px solid rgba(176,198,212,.23);
+      }
+
+      .nav-links.is-open { display: flex; }
+      .nav-links a { padding: 11px 4px; font-size: 14px; }
+      .nav-links .nav-resume { text-align: center; }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-block: 70px 54px;
+        min-height: 0;
+      }
+
+      .hero-visual {
+        max-width: 420px;
+        aspect-ratio: 1.55;
+        margin: 0;
+      }
+
+      .visual-main { inset: 18% 26%; }
+      .visual-initials { font-size: 70px; }
+
+      .hero-bottom { gap: 9px 24px; }
+      .section { padding-block: 70px; }
+
+      .about-grid,
+      .projects-layout,
+      .exp-item {
+        grid-template-columns: 1fr;
+        gap: 19px;
+      }
+
+      .skill-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .projects { padding-block: 70px; }
+      .footer { margin-top: 60px; }
+    }
+
+    @media (max-width: 520px) {
+      h1 { font-size: 57px; }
+      .hero-visual { aspect-ratio: 1.35; }
+      .hero-actions .btn { width: 100%; }
+      .skill-grid { grid-template-columns: 1fr; }
+      .skill-card { min-height: 0; }
+      .edu-card { align-items: start; flex-direction: column; }
+      .contact-links a { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark">CO.</span>
+        <span class="brand-label">Carlos Opeder</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="site-navigation"
+        aria-expanded="false"
+      >☰</button>
+
+      <nav class="nav-links" id="site-navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-resume" href="./resume.pdf" target="_blank">
+          Resume ↗
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HOME -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            Computer Science &amp; Systems Student
+          </div>
+
+          <h1>Carlos <span>Opeder.</span></h1>
+
+          <p class="hero-lead">
+            I'm a Computer Science and Systems student at
+            the University of Washington Tacoma, interested
+            in software engineering, programming, and
+            problem-solving.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">
+              Explore my work →
+            </a>
+            <a class="btn btn-secondary"
+               href="./resume.pdf"
+               target="_blank">
+              View resume ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-top">
+            <span>PROFILE / 001</span>
+            <span>● ○ ○</span>
+          </div>
+
+          <div class="visual-main">
+            <div class="visual-ring">
+              <span class="visual-initials">CO.</span>
+            </div>
+          </div>
+
+          <div class="visual-caption">
+            <span>UW TACOMA<br>COMPUTER SCIENCE</span>
+            <span>CLASS OF<br>2028</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero-bottom">
+        <span>
+          <i class="mini-square"></i>
+          <b>Based in</b> Washington
+        </span>
+        <span>
+          <i class="mini-square"></i>
+          <b>Focused on</b> Software Engineering
+        </span>
+        <span>
+          <i class="mini-square"></i>
+          <b>Open to</b> Internship Opportunities
+        </span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="section-kicker">01 / About</p>
+          <h2 class="section-title">
+            Learning, building, improving.
+          </h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            I'm pursuing a bachelor's degree in Computer
+            Science and Systems at the University of
+            Washington Tacoma, with an expected graduation
+            date of June 2028.
+          </p>
+          <p>
+            My coursework has helped me build a foundation
+            in Java and object-oriented programming.
+            I've also gained introductory exposure to
+            JavaScript, HTML, CSS, and web development
+            through personal projects.
+          </p>
+          <p>
+            I'm interested in gaining hands-on experience
+            through internships, collaborating with others,
+            and continuing to strengthen my software
+            engineering skills.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <p class="section-kicker">02 / Capabilities</p>
+        <h2 class="section-title">Skills &amp; tools</h2>
+
+        <div class="skill-grid">
+          <article class="skill-card">
+            <span class="skill-index">01 — LANGUAGE</span>
+            <h3>Java</h3>
+            <p>
+              Programming fundamentals and Java coursework,
+              including class design and application logic.
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-index">02 — CONCEPTS</span>
+            <h3>Object-Oriented Programming</h3>
+            <p>
+              Classes, inheritance, encapsulation,
+              and other core software design concepts.
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-index">03 — INTRODUCTORY</span>
+            <h3>Web Development</h3>
+            <p>
+              Basic exposure to JavaScript, HTML,
+              and CSS through personal projects.
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-index">04 — PRACTICES</span>
+            <h3>Testing &amp; Git</h3>
+            <p>
+              Coursework experience with JUnit testing
+              and Git-based version control.
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-index">05 — COLLABORATION</span>
+            <h3>Teamwork</h3>
+            <p>
+              Working with classmates, supervisors,
+              and colleagues toward shared goals.
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <span class="skill-index">06 — PROFESSIONAL</span>
+            <h3>Communication</h3>
+            <p>
+              Leadership, organization, and problem-solving
+              developed through academic and work experience.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="container projects-layout">
+        <div>
+          <p class="section-kicker">03 / Portfolio</p>
+          <h2 class="section-title">Selected projects</h2>
+          <p class="projects-copy">
+            This section is a work in progress.
+            I'm continuing to build and refine projects
+            through coursework and personal learning,
+            and I'll add detailed write-ups as they're ready.
+          </p>
+
+          <a class="projects-link"
+             href="https://github.com/opederca"
+             target="_blank"
+             rel="noopener noreferrer">
+            Visit my GitHub ↗
+          </a>
+        </div>
+
+        <div class="project-placeholder">
+          <small>Status / Work in progress</small>
+          <h3>More to come.</h3>
+          <p>
+            Future updates will include project descriptions,
+            technologies used, and key lessons learned.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <p class="section-kicker">04 / Background</p>
+        <h2 class="section-title">Experience</h2>
+
+        <p class="section-intro">
+          Roles that strengthened my communication,
+          leadership, organization, and ability
+          to work with others.
+        </p>
+
+        <div class="experience-list">
+          <article class="exp-item">
+            <div>
+              <h3>Club Manager</h3>
+              <p class="exp-place">Metro Parks Tacoma</p>
+              <span class="exp-date">
+                Feb 2023 — Jun 2023
+              </span>
+            </div>
+
+            <ul>
+              <li>
+                Led and supervised a youth basketball club
+                for middle school students alongside a team
+                of supervisors.
+              </li>
+              <li>
+                Organized practices, skill-building exercises,
+                and competitive activities.
+              </li>
+              <li>
+                Developed leadership, teamwork, communication,
+                and organizational skills.
+              </li>
+            </ul>
+          </article>
+
+          <article class="exp-item">
+            <div>
+              <h3>School Counseling Intern</h3>
+              <p class="exp-place">Tacoma Public Schools</p>
+              <span class="exp-date">
+                Feb 2023 — Jun 2023
+              </span>
+            </div>
+
+            <ul>
+              <li>
+                Assisted the school counselor at Birney
+                Elementary School with daily operations
+                and student support.
+              </li>
+              <li>
+                Helped coordinate educational activities,
+                school events, and student engagement
+                initiatives.
+              </li>
+              <li>
+                Collaborated with faculty and staff to
+                support a positive learning environment.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section education" id="education">
+      <div class="container">
+        <p class="section-kicker">05 / Education</p>
+        <h2 class="section-title">Academic background</h2>
+
+        <div class="edu-card">
+          <div>
+            <h3 class="edu-school">
+              University of Washington Tacoma
+            </h3>
+            <p class="edu-degree">
+              Bachelor of Arts in Computer Science and Systems
+            </p>
+          </div>
+
+          <span class="edu-date">
+            Expected Jun 2028
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <p class="section-kicker">06 / Contact</p>
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact-links">
+          <a href="mailto:opedercarlosba@gmail.com">
+            ✉ Email
+          </a>
+
+          <a href="https://www.linkedin.com/in/carlos-opeder"
+             target="_blank"
+             rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
+
+          <a href="https://github.com/opederca"
+             target="_blank"
+             rel="noopener noreferrer">
+            GitHub ↗
+          </a>
+
+          <a href="./resume.pdf"
+             target="_blank"
+             rel="noopener noreferrer">
+            Resume ↗
+          </a>
+        </div>
+
+        <footer class="footer">
+          © <span id="year">2026</span> Carlos Opeder
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("site-navigation");
+
+    if (toggle && nav) {
+      const closeMenu = () => {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      };
+
+      toggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+
+      nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeMenu();
+      });
+    }
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
